@@ -7,11 +7,9 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <script src="https://d3js.org/d3.v3.min.js"></script>
-  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="http://d3js.org/d3.v4.min.js"></script>
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.4/js/materialize.min.js"></script>
-
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -63,9 +61,6 @@
       will-change: transform;
       will-change: opacity;
       will-change: scroll-position;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
     }
     .align {
       display: flex;
@@ -264,6 +259,7 @@
       background-color: #0277BD;
     }
 
+
     @media only screen and (max-width: 675px) {
       .highTitle {
         font-size: 14px;
@@ -300,40 +296,16 @@
       <a href="#" class="right">Version: 0.0.1</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li class="navitem"><i class="material-icons left">blur_on</i><a href="./index.html">Switch to Bubble Map</a></li>
+        <li class="navitem"><i class="material-icons left">blur_on</i><a href="./point_map.html">Switch to Bubble Map</a></li>
 
       </ul>
       <ul class="side-nav" id="mobile-demo">
-        <li class="navitem"><a href="./index.html">Switch to Bubble Map</a></li>
+        <li class="navitem"><a href="./point_map.html">Switch to Bubble Map</a></li>
       </ul>
     </div>
   </nav>
-  
-  <script>
-    (function($){
-      $(function(){
 
-    $('.button-collapse').sideNav();
-
-    }); // end of document ready
-    })(jQuery); // end of jQuery name space
-  </script>
-  
-   <script>
-      var elem = document.querySelector('.sidenav');
-        var instance = M.Sidenav.init(elem, options);
-
-        // Initialize collapsible (uncomment the lines below if you use the dropdown variation)
-        // var collapsibleElem = document.querySelector('.collapsible');
-        // var collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
-
-        // Or with jQuery
-
-        $(document).ready(function(){
-          $('.sidenav').sidenav();
-        });
-    </script>
-
+  <div class="se-pre-con"></div>
 
   <div class="container topmargin">
     <div class="row align">
@@ -554,6 +526,11 @@
       }
     </script>
 
+    <script>
+      $( document ).ready(function(){
+        $(".button-collapse").sideNav();
+      })
+    </script>
   </div>
   <footer class="page-footer">
     <div class="container">
@@ -580,6 +557,7 @@
 
   <script async type="text/javascript" src="https://d3js.org/topojson.v2.min.js"></script>
   <script async defer src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.0/d3-legend.js"></script>
+  <script async src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   <script type="text/javascript" src="./textAnimate.js"></script>
 
 </body>
