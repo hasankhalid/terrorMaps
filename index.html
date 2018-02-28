@@ -3,7 +3,6 @@
 <meta name="robots" content="noindex">
 <html>
 <head>
-
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
@@ -13,10 +12,9 @@
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
-
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <meta charset="utf-8">
   <title>Pakistan map</title>
   <style id="jsbin-css">
     .whole-strip {
@@ -477,6 +475,33 @@
 
           d3.csv('globalterrorismdb_edited_sorted.csv', function(data_terror){
             function update_points(year){
+              // filtering the data based on year and district
+              var data_terror_sub = data_terror.filter(function(d){
+                return (d.iyear == year);
+              })
+
+              var sum_n_inc = data_terror_sub.length;
+
+              var n_kill = data_terror_sub.map(function(d){
+                return +d.nkill;
+              })
+              var sum_n_kill = n_kill.reduce((a, b) => a + b, 0);
+
+              var n_wound = data_terror_sub.map(function(d){
+                return +d.nwound;
+              })
+              var sum_n_wound = n_wound.reduce((a, b) => a + b, 0);
+
+              // replacing the values on the monitor
+              // d3.select("#n_inc").text(sum_n_inc);
+              // d3.select("#n_kill").text(sum_n_kill);
+              // d3.select("#n_wound").text(sum_n_wound);
+
+              interp_text_transit("#n_inc", 1000, sum_n_inc)
+              interp_text_transit("#n_kill", 1000, sum_n_kill)
+              interp_text_transit("#n_wound", 1000, sum_n_wound)
+
+
               svg.selectAll("circle").remove()
               svg.selectAll("path")
                   .attr("transform", "translate(0, 0)" + " scale(1)");
