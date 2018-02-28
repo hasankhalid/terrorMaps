@@ -10,6 +10,8 @@
   <script src="https://d3js.org/d3.v3.min.js"></script>
   <script src="https://d3js.org/d3.v4.min.js"></script>
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.4/js/materialize.min.js"></script>
+
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -318,9 +320,18 @@
   </script>
   
    <script>
-      $( document ).ready(function(){
-        $(".button-collapse").sideNav();
-      })
+      var elem = document.querySelector('.sidenav');
+        var instance = M.Sidenav.init(elem, options);
+
+        // Initialize collapsible (uncomment the lines below if you use the dropdown variation)
+        // var collapsibleElem = document.querySelector('.collapsible');
+        // var collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
+
+        // Or with jQuery
+
+        $(document).ready(function(){
+          $('.sidenav').sidenav();
+        });
     </script>
 
 
@@ -569,7 +580,6 @@
 
   <script async type="text/javascript" src="https://d3js.org/topojson.v2.min.js"></script>
   <script async defer src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.0/d3-legend.js"></script>
-  <script async defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   <script type="text/javascript" src="./textAnimate.js"></script>
 
 </body>
