@@ -56,7 +56,17 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+   }
 
+   .s2.select{
+     color: white;
+   }
+   p#year {
+     color: white;
+   }
+
+   .page-footer{
+     background-color: #90A4AE;
    }
   </style>
   <style>
@@ -65,7 +75,13 @@
       will-change: transform;
       will-change: opacity;
       will-change: scroll-position;
+      background-color: #37474F;
     }
+
+    div.mapContain > svg {
+      background-color: #37474F;
+    }
+
     .align {
       display: flex;
       align-items: flex-end;
@@ -117,16 +133,18 @@
     }
 
     .dataSumm {
-      background-color: #03A9F4;
+      background-color: none;
       border-radius: 7.5px;
       color: white;
-      -webkit-box-shadow: 6px 6px 9px -2px rgba(0,0,0,0.64);
-      -moz-box-shadow: 6px 6px 9px -2px rgba(0,0,0,0.64);
-      box-shadow: 6px 6px 9px -2px rgba(0,0,0,0.64);
+
     }
 
-    .page-footer {
-      background-color: #D81B60;
+    #n_inc, #n_kill, #n_wound {
+        color: #FF5722;
+    }
+
+    div.dataSumm > div {
+      background-color: none;
     }
 
     .animate1{
@@ -203,7 +221,7 @@
       text-align: right;
       color: #01579B;
     }
-    
+
     .Note {
       font-family: 'Open Sans', sans-serif;
     }
@@ -264,7 +282,8 @@
     }
 
     .nav-wrapper {
-      background-color: #0277BD;
+      background-color: #FFF;
+      color: black;
     }
 
 
@@ -284,14 +303,12 @@
       .dataSumm {
         background-color: white;
         color: black;
-        -webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.64);
-        -moz-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.64);
-        box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.64);
       }
 
       #year {
         font-size: 15px;
       }
+
 
     }
   </style>
@@ -301,10 +318,10 @@
 <body>
   <nav>
     <div class="nav-wrapper">
-      <a href="#" class="right">Version: 0.0.1</a>
+      <a href="#" class="right"></a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li class="navitem"><i class="material-icons left">blur_on</i><a href="./index.html">Switch to Bubble Map</a></li>
+        <li class="navitem"><i class="material-icons left">blur_on</i><a style = "color: black" href="./index.html">Switch to Bubble Map</a></li>
 
       </ul>
       <ul class="side-nav" id="mobile-demo">
@@ -445,7 +462,7 @@
                   .enter().append("path")
                   .attr("d", function (d, i){ return path(d)})
                   .style("opacity", 1)
-                  .style("stroke", "white")
+                  .style("stroke", "#37474F")
                   .style("stroke-width", 0.2)
                   .style("fill", "#FB8C00")
             function update_choropleth(year){
@@ -511,7 +528,7 @@
                               .style("top", (d3.event.pageY +20) + "px");
                     })
                     .on("mouseout", function(){
-                        d3.select(this).style("stroke", "white");
+                        d3.select(this).style("stroke", "#37474F");
                         d3.select(this).style("stroke-width", 0.2);
                         d3.select(this).style("opacity", 0.9);
 
